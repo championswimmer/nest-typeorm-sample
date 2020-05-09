@@ -73,3 +73,28 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
   Nest is [MIT licensed](LICENSE).
+
+
+----------------------------------------------------------------------------------------------------
+
+# Sample App Setups
+
+
+## Pre Requisites
+
+```shell
+yarn global add @nestjs/cli
+
+mkdir my-app
+cd my-app
+nest new 
+yarn install
+```
+
+## Adding New Module
+
+```shell
+nest g mo articles
+nest g s articles
+nest g co articles
+```
