@@ -98,3 +98,12 @@ nest g mo articles
 nest g s articles
 nest g co articles
 ```
+
+## Create DB 
+
+```mysql
+create database nestsample;
+create user nestuser identified with mysql_native_password by 'nestpass';
+grant all privileges on nestsample.* to nestuser;
+flush privileges;
+```
