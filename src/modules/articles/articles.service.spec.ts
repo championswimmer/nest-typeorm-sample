@@ -1,12 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ArticlesService } from './articles.service';
+import { mockArticleRepositoryProvider } from '../../entities/article.entity';
 
 describe('ArticlesService', () => {
   let service: ArticlesService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [ArticlesService],
+      providers: [
+        ArticlesService, 
+        mockArticleRepositoryProvider
+      ],
     }).compile();
 
     service = module.get<ArticlesService>(ArticlesService);
@@ -17,6 +21,6 @@ describe('ArticlesService', () => {
   });
 
   it('should fetch all articles', async () => {
-    expect(await service.getAllArticles()).toEqual('ALL ARTICLES');
+    expect(await service.getAllArticles()).toEqual([{"id": 1, "title": "XXX"}]);
   });
 });
