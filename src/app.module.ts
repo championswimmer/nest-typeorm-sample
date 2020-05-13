@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ArticlesModule } from './modules/articles/articles.module';
 import { UsersModule } from './modules/users/users.module';
+import { Article } from './entities/article.entity';
 
 @Module({
   imports: [
@@ -13,7 +14,8 @@ import { UsersModule } from './modules/users/users.module';
       username: 'nestuser',
       password: 'nestpass',
       database: 'nestsample',
-      synchronize: true
+      synchronize: true,
+      entities: [Article]
     }),
     ArticlesModule,
     UsersModule

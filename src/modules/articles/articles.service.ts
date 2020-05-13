@@ -1,7 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Article } from '../../entities/article.entity';
+import { ArticleCreateDto } from './articles.dto';
 
 @Injectable()
 export class ArticlesService {
@@ -14,5 +15,8 @@ export class ArticlesService {
     return await this.articleRepository.find()
   }
 
+  async createArticle(articleCreateDto: ArticleCreateDto) {
+    return await this.articleRepository.insert(articleCreateDto)
+  }
   
 }

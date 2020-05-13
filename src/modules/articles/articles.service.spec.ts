@@ -23,4 +23,8 @@ describe('ArticlesService', () => {
   it('should fetch all articles', async () => {
     expect(await service.getAllArticles()).toEqual([{"id": 1, "title": "XXX"}]);
   });
+
+  it('should create article', async () => {
+    expect(await (await service.createArticle({title: 'xxx'})).identifiers).toEqual([{id: 1}])
+  });
 });
